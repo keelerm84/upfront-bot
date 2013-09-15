@@ -8,13 +8,13 @@ class MonitorUsers
     listen_to :join, method: :on_join
     listen_to :leaving, method: :on_leave
 
-    @@base_url = "http://upfrontwichita.herokuapp.com"
+    @@base_url = "http://upfrontwichita.com"
 
     def on_join(m)
         if m.user == bot
             users = Array.new
             m.channel.users.each_key do |user|
-                next if user == bot
+                next if user == bot || user == "ChanServ"
                 users << {'handle' => user}
             end
 
