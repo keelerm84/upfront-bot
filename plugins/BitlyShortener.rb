@@ -16,11 +16,17 @@ class BitlyShortener
 
   def on_message(m)
     URI.extract(m.message) do |uri|
+      next if uri.length < 25
+
+      begin
+        URI.parse(uri)
+      rescue
+        puts "Invalid URI detected.  Skipping ..."
+        next
+      end
+
       url = @bitly.shorten(uri)
       m.reply url.short_url
     end
   end
 end
-    
-
-  
