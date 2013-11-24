@@ -27,7 +27,7 @@ class Notes
 
     if !note
       m.reply "That note doesn't exist."
-    elsif note.user_from != m.user
+    elsif note.user_from != m.user.nick
       m.reply "That note doesn't belong to you."
     elsif note.destroy
       m.reply "Note #{id} has been destroyed"
