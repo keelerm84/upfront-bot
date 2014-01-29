@@ -17,4 +17,5 @@ below steps.
     git clone https://github.com/keelerm84/upfront-bot
     cd upfront-bot
     bundle install
+    cp config.ini.example config.ini
     ruby bot.rb
