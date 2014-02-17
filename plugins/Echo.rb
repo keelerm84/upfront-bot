@@ -6,10 +6,15 @@ class Echo
   set :prefix, /^!/
 
   match /say (.+)/, method: :say_command
+  match /action (.+)/, method: :action_command
   match /kick ([^ ]+)(.*)/, method: :kick_command
 
   def say_command(m, command)
     channel.msg(command) if verify_ops(m)
+  end
+
+  def action_command(m, command)
+    channel.action(command) if verify_ops(m)
   end
 
   def kick_command(m, user, reason)
