@@ -7,6 +7,7 @@ require './plugins/MonitorUsers'
 require './plugins/BitlyShortener'
 require './plugins/Notes'
 require './plugins/Echo'
+require './plugins/Michael'
 
 require './models/Note'
 require 'dm-core'
@@ -27,7 +28,7 @@ bot = Cinch::Bot.new do
       :password  => config['general']['password'],
       :type => :nickserv
     }
-    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo]
+    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael]
   end
 end
 
