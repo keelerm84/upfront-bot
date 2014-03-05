@@ -1,11 +1,11 @@
-# UpFront Wichita IRC Bot
+# DevICT IRC Bot
 
-[UpFront Wichita](http://upfrontwichita.com) is a developers group
+[DevICT](http://devict.org) is a developers group
 located in Wichita, Kansas.  We meet once a month to present on a
 variety of topics, ranging from front end, back end, and development
 tools.
 
-A lot of the members meet daily on our IRC channel, #upfrontwichita on
+A lot of the members meet daily on our IRC channel, #devict on
 irc.freenode.net.  This bot provides a couple of fun little niceties,
 like automatic URL shortening for all links, a pastie service, and a
 user list monitoring service.

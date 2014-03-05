@@ -8,7 +8,7 @@ class MonitorUsers
     listen_to :join, method: :on_join
     listen_to :leaving, method: :on_leave
 
-    @@base_url = "http://upfrontwichita.com"
+    @@base_url = "http://devict.org"
 
     def on_join(m)
         if m.user == bot

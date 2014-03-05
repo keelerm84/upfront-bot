@@ -32,6 +32,6 @@ class Echo
   end
 
   def channel
-    Channel('#upfrontwichita')
+    Channel('#devict')
   end
 end

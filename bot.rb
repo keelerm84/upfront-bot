@@ -8,6 +8,7 @@ require './plugins/BitlyShortener'
 require './plugins/Notes'
 require './plugins/Echo'
 require './plugins/Michael'
+require './plugins/WildJim'
 
 require './models/Note'
 require 'dm-core'
@@ -20,15 +21,15 @@ config = IniFile.load 'config.ini'
 
 bot = Cinch::Bot.new do
   configure do |c|
-    c.nick = 'upfront-bot'
+    c.nick = 'devict-bot'
     c.server = 'irc.freenode.org'
-    c.channels = ['#upfrontwichita']
+    c.channels = ['#devict']
     c.plugins.options[Cinch::Plugins::Identify] = {
       :username => config['general']['username'],
       :password  => config['general']['password'],
       :type => :nickserv
     }
-    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael]
+    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim]
   end
 end
 
