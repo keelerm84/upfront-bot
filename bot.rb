@@ -2,12 +2,13 @@ require 'cinch'
 require 'cinch/plugins/identify'
 require 'inifile'
 
-require './plugins/CodeChallengeSubmission'
-require './plugins/MonitorUsers'
 require './plugins/BitlyShortener'
-require './plugins/Notes'
+require './plugins/CodeChallengeSubmission'
 require './plugins/Echo'
 require './plugins/Michael'
+require './plugins/MonitorUsers'
+require './plugins/Notes'
+require './plugins/Roulette'
 require './plugins/WildJim'
 
 require './models/Note'
@@ -29,7 +30,7 @@ bot = Cinch::Bot.new do
       :password  => config['general']['password'],
       :type => :nickserv
     }
-    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim]
+    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim, Roulette]
   end
 end
 
