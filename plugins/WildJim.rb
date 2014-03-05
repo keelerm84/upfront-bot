@@ -8,17 +8,13 @@ class WildJim
 
   def on_join(m)
     if m.user.nick == "jimrice"
-      channel.msg("** A Wild jimrice appears! **")
+      m.reply "** A Wild jimrice appears! **"
     end
   end
 
   def on_part(m)
     if m.user.nick == "jimrice"
-      channel.msg("** The Wild jimrice flees! **")
+      m.reply "** The Wild jimrice flees! **"
     end
-  end
-
-  def channel
-    Channel('#devict')
   end
 end
