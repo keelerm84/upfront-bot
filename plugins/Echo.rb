@@ -18,7 +18,7 @@ class Echo
   end
 
   def kick_command(m, user, reason)
-    channel.kick(user, reason.strip) if verify_ops(m)
+    channel.kick(user, reason.strip) if m.user == user || verify_ops(m)
   end
 
   protected
