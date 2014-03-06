@@ -13,7 +13,8 @@ class PHPDocs
     # Lookup PHP Docs
     file = open('http://php.net/'+URI.escape(func_name))
     contents = file.read
-    if !contents.include? "methodsynopsis"
+    contents.encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+    if !contents.include? "methodsynopsis" or !contents.include? "refpurpose"
       m.reply "Function not found."
       return
     end
