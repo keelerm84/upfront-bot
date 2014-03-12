@@ -21,7 +21,7 @@ class Roulette
 
     return if !player
 
-    random = (0..100).to_a.sample
+    random = (0..1000).to_a.sample
 
     if 21 == random
       m.channel.kick(m.user, "Bullet to the head.  That has got to hurt!")
