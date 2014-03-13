@@ -11,6 +11,7 @@ require './plugins/Notes'
 require './plugins/Roulette'
 require './plugins/WildJim'
 require './plugins/PHPDocs'
+require './plugins/SecretWord'
 
 require './models/Note'
 require 'dm-core'
@@ -23,15 +24,15 @@ config = IniFile.load 'config.ini'
 
 bot = Cinch::Bot.new do
   configure do |c|
-    c.nick = 'devict-bot'
-    c.server = 'irc.freenode.org'
-    c.channels = ['#devict']
+    c.nick = config['general']['username']
+    c.server = config['general']['server']
+    c.channels = config['general']['channels'].split(',')
     c.plugins.options[Cinch::Plugins::Identify] = {
       :username => config['general']['username'],
       :password  => config['general']['password'],
       :type => :nickserv
     }
-    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim, Roulette, PHPDocs]
+    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim, Roulette, PHPDocs, SecretWord]
   end
 end
 
