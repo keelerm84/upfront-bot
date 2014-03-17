@@ -1,12 +1,14 @@
 require 'cinch'
 require 'date'
+require 'rubygems'
+require 'action_view'
+include ActionView::Helpers::TextHelper
 
 class SecretWord
   include Cinch::Plugin
 
   @@current_word = ""
   @@last_update
-
   @@secret_said_count = 0
 
   set :prefix, /^!/
@@ -19,7 +21,6 @@ class SecretWord
     super
     update_secret_word
   end
-  
 
   def on_message(m)
     start_of_today = Date.new(Time.now.year, Time.now.month, Time.now.day).to_time
@@ -44,7 +45,7 @@ class SecretWord
     if @@secret_said_count == 0
       add_hug = ":( :( :("
     end
-    m.reply(add_hug + " The secret word has been said " + @@secret_said_count.to_s + " times " + add_hug)
+    m.reply(add_hug + " The secret word has been said " + pluralize(@@secret_said_count, "time") + " " + add_hug)
   end
 
   def update_secret_word
@@ -77,7 +78,7 @@ class SecretWord
     if @@secret_said_count == 0
       m.reply("The previous secret word was '" + @@current_word + "'. NOBODY SAID IT. :( :( :(")
     else
-      m.reply("The previous secret word was '" + @@current_word + "'. It was said " + @@secret_said_count + " times!")
+      m.reply("The previous secret word was '" + @@current_word + "'. It was said " + pluralize(@@secret_word_count, "time") + "!")
     end
   end
 
