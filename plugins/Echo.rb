@@ -9,6 +9,8 @@ class Echo
   match /action (.+)/, method: :action_command
   match /kick ([^ ]+)(.*)/, method: :kick_command
 
+  config = IniFile.load 'config.ini'
+
   def say_command(m, command)
     channel.msg(command) if verify_ops(m)
   end
@@ -32,6 +34,6 @@ class Echo
   end
 
   def channel
-    Channel('#devict')
+    Channel(config['general']['channels'].split(',')[0])
   end
 end
