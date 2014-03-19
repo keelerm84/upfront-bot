@@ -1,3 +1,5 @@
 [general]
 username=example-username
 password=example-password
+server=irc.example.net
+channels="#example-channel1,#example-channel2"
