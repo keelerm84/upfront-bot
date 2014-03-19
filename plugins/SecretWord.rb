@@ -28,7 +28,7 @@ class SecretWord
       new_word_output(m)
       update_secret_word
     end
-    if m.message.downcase.include? @@current_word
+    if /\b#{@@current_word}\b/.match(m.message.downcase)
       m.reply("YOU SAID THE SECRET WORD!!!!")
       m.reply(@@current_word.upcase + "!!! " + @@current_word.upcase + "!!!")
       @@secret_said_count = @@secret_said_count + 1
