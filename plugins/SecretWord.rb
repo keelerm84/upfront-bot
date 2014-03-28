@@ -78,7 +78,7 @@ class SecretWord
     if @@secret_said_count == 0
       m.reply("The previous secret word was '" + @@current_word + "'. NOBODY SAID IT. :( :( :(")
     else
-      m.reply("The previous secret word was '" + @@current_word + "'. It was said " + pluralize(@@secret_word_count, "time") + "!")
+      m.reply("The previous secret word was '" + @@current_word + "'. It was said " + pluralize(@@secret_said_count, "time") + "!")
     end
   end
 
