@@ -11,7 +11,7 @@ require './plugins/Notes'
 require './plugins/Roulette'
 require './plugins/WildJim'
 require './plugins/PHPDocs'
-require './plugins/SecretWord'
+require './plugins/SecretWordPlugin'
 
 require './models/Note'
 require 'dm-core'
@@ -32,7 +32,7 @@ bot = Cinch::Bot.new do
       :password  => config['general']['password'],
       :type => :nickserv
     }
-    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim, Roulette, PHPDocs, SecretWord]
+    c.plugins.plugins = [Cinch::Plugins::Identify, CodeChallengeSubmission, MonitorUsers, BitlyShortener, Notes, Echo, Michael, WildJim, Roulette, PHPDocs, SecretWordPlugin]
   end
 end
 
